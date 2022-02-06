@@ -1,0 +1,35 @@
+<mat-card class="example-card">
+    <mat-card-header>
+        <mat-card-title>Transaction</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <form class="example-form">
+            <table class="example-full-width" cellspacing="0">
+                <tr>
+                    <td>
+                        <mat-form-field class="example-full-width">
+                            <mat-label>Transaction Type</mat-label>
+                            <mat-select [(ngModel)]="selectedTransactionType" name="transactionType">
+                                <mat-option *ngFor="let transactionType of transactionTypes" [value]="transactionType.value">
+                                    {{transactionType.viewValue}}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <mat-form-field class="example-full-width">
+                            <input matInput placeholder="Enter amount" type= "number" [(ngModel)]="transactionAmount"
+                                name="transactionAmount" required>
+                        </mat-form-field>
+                    </td>
+                </tr>
+            </table>
+        </form>
+        <mat-spinner [style.display]="showSpinner ? 'block' : 'none'"></mat-spinner>
+    </mat-card-content>
+    <mat-card-actions>
+        <button mat-raised-button (click)="performTransaction()" [disabled] = "!transactionAmount || !selectedTransactionType" color="primary">Confirm</button>
+    </mat-card-actions>
+</mat-card>

@@ -1,0 +1,8 @@
+<mat-toolbar color="primary">
+    <mat-toolbar-row>
+        <a mat-button *ngIf="!loginService.isUserLoggedIn()" routerLink="/login" class="nav-link button-color">Login</a>
+        <a mat-button *ngIf="loginService.isUserLoggedIn()" routerLink="/" class="nav-link button-color">Home</a>
+        <a mat-button *ngIf="loginService.isUserLoggedIn()" routerLink="/transactions" class="nav-link button-color">Transaction</a>
+        <a mat-button *ngIf="loginService.isUserLoggedIn()" routerLink="/logout" class="nav-link button-color">LogOut</a>
+    </mat-toolbar-row>
+</mat-toolbar>
